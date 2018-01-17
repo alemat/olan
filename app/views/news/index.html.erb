@@ -1,0 +1,21 @@
+<div class='row'>
+<% @news.each do |n| %>
+<div class="col-md-6">
+  <div class="card">
+  <div class="card-block">
+      <div class="card-title"><i class="fa fa-clock-o" aria-hidden="true"> <%= distance_of_time_in_words_to_now(n.created_at) %> | </i>
+        <span class='headline'><a href = <%= "#{n.link}" %> target='_blank' style="text-indent: 20px" > <%= n.headline %> </a></span>
+      </div>
+      <p class="card-text intro_text">
+        <%= n.intro_text %> <a href = <%= "#{n.link}" %> target='_blank' style="text-indent: 10px" > Read More... </a>
+      </p>
+      <span class='media'><%= n.medium.name %></span>
+      <%= button_to n.status==true ? 'Unpublish' : 'Publish', manage_news_index_path(id: n.id) if can? :manage, n %>
+    </div>
+  </div>
+</div>
+<% end %>
+</div>
+<div class="apple_pagination">
+  <%= will_paginate @news, :container => false %>
+</div>

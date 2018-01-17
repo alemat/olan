@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Ethiopian News, Ethiopia Breaking News, Fast Ethiopian News, Ethiopian News Media,Ethiopia, Addis Ababa, Fetan, Fetan News, Ethiopian Local News, Ethiopia International News, Amharic News, Amharic">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>ArifNews</title>
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="masthead">
+      <%= link_to root_path do %>
+        <span class="navbar-brand"><%= image_tag('an.png') %></span> 
+      <% end %>
+        <div style="float: right">
+        <% if user_signed_in? %>
+          <%= link_to 'Logout' ,destroy_user_session_path, method: :delete  %>
+        <% else %>
+          <%= link_to 'Login' ,new_user_session_path  %>
+        <% end %>
+        </div>
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded rounded mb-3">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="nav navbar-nav text-md-center justify-content-md-between">
+              <li class="nav-item">
+                <%= link_to 'Home', root_path, {class: "nav-link"} %>
+              </li>
+              <% if can? :manage, Medium %>
+              <li class="nav-item">
+                <%= link_to 'Medias', media_path, {class: "nav-link"}%>
+              </li>
+              <% end %>
+              <% if can? :manage, User %>
+              <li class="nav-item">
+                <%= link_to 'Users', users_path, {class: "nav-link"}%>
+              </li>
+              <% end %>
+              <li class="nav-item">
+                <%= link_to 'Contact us', contact_us_path, {class: "nav-link"} %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'About us', about_us_path, {class: "nav-link"} %>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="row main_content">
+        <div class='col-md-9'>
+        <%= flash_messages(:close) %> 
+        <%= yield %>
+        </div>
+
+        <div class="col-md-3 static_content">
+          <%= render 'shared/side_content' %>
+        </div>
+      <!-- Site footer -->
+      <footer class="footer">
+        <p>&copy; ArifNews <%= Date.today.year %></p>
+      </footer>
+
+    </div> <!-- /container -->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </body>
+</html>

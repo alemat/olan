@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @medium.name %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @medium.url %>
+</p>
+
+<p>
+  <strong>Main container:</strong>
+  <%= @medium.main_container %>
+</p>
+
+<p>
+  <strong>Headline container:</strong>
+  <%= @medium.headline_container %>
+</p>
+
+<p>
+  <strong>Introtext container:</strong>
+  <%= @medium.introtext_container %>
+</p>
+
+<p>
+  <strong>Link container:</strong>
+  <%= @medium.link_container %>
+</p>
+
+<p>
+  <strong>Link prefix:</strong>
+  <%= @medium.link_prefix %>
+</p>
+
+<%= link_to 'Edit', edit_medium_path(@medium) %> |
+<%= link_to 'Back', media_path %>

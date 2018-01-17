@@ -1,0 +1,42 @@
+<%= form_for(news) do |form| %>
+  <% if news.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(news.errors.count, "error") %> prohibited this news from being saved:</h2>
+
+      <ul>
+      <% news.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :medium_id %>
+    <%= form.collection_select :medium_id, Medium.all, :id, :name, id: :news_medium_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :headline %>
+    <%= form.text_area :headline, id: :news_headline %>
+  </div>
+
+  <div class="field">
+    <%= form.label :intro_text %>
+    <%= form.text_area :intro_text, id: :news_intro_text %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link %>
+    <%= form.text_area :link, id: :news_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url %>
+    <%= form.text_area :image_url, id: :news_image_url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

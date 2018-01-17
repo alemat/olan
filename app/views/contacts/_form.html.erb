@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-block">
+<div class="form-group">
+<fieldset>
+<legend>Contact us</legend>
+<%= form_for(contact) do |f| %>
+  <% if contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :message %>
+    <%= f.text_area :message, rows: 7, class: "form-control" %>
+  </div>
+
+  <hr/>
+  <div class="actions">
+    <%= f.submit 'Send' %>
+  </div>
+<% end %>
+</fieldset>
+</div>
+</div>
+</div>

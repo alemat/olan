@@ -1,0 +1,50 @@
+
+ <h1>Calcuator</h1>
+
+ <div id='mode'>
+  <span class='calculator_mode'>
+    <input type="radio" name="calculator_mode" value="standard" checked="checkd">Standard</input>
+  </span>
+  <span class='calculator_mode'>
+    <input type="radio" name="calculator_mode" value="scientfic">Scientfic</input>
+  </span>
+  <span class='calculator_mode'>
+    <input type="radio" name="calculator_mode" value="programmer">Programmer</input>
+  </span>
+  </div>
+  
+  <div class="main_calculator">
+    <input type="number" name="first_input" id='first_number'/>
+    <select type="select" class='operator' id='standard'>
+    <option></option>
+    <option value='+'>+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    </select>
+
+    <select type="select" name="operator" id='scientfic'>
+    <option></option>
+    <option value='+'>+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    <option value="x^y">x^y</option>
+    <option value="x root y">x root y</option>
+    </select>
+
+    <select type="select" name="operator" id='programmer'>
+    <option></option>
+    <option value='+'>+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    <option value="x mood y">x mood y</option>
+    </select>
+
+    <input type="number" name="second_input" id='second_number'/>
+    <span>=</span>
+    <span id='result'></span>
+  </div>
+
+</div>

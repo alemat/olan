@@ -1,0 +1,64 @@
+<div class="form-group">
+<%= form_for(medium) do |form| %>
+  <% if medium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(medium.errors.count, "error") %> prohibited this medium from being saved:</h2>
+
+      <ul>
+      <% medium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :medium_name,class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url, id: :medium_url,class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :main_container %>
+    <%= form.text_field :main_container, id: :medium_main_container, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :headline_container %>
+    <%= form.text_field :headline_container, id: :medium_headline_container, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :introtext_container %>
+    <%= form.text_field :introtext_container, id: :medium_introtext_container, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link_container %>
+    <%= form.text_field :link_container, id: :medium_link_container, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link_prefix %>
+    <%= form.text_field :link_prefix, id: :medium_link_prefix, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url_container %>
+    <%= form.text_field :image_url_container, id: :medium_image_url_container, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_prefix %>
+    <%= form.text_field :image_prefix, id: :medium_image_prefix, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

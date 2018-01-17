@@ -1,0 +1,38 @@
+
+<h1>Media</h1>
+
+<table class="table table-responsive">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Url</th>
+      <th>Main container</th>
+      <th>Headline container</th>
+      <th>Introtext container</th>
+      <th>Link container</th>
+      <th>Link prefix</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @media.each do |medium| %>
+      <tr>
+        <td><%= medium.name %></td>
+        <td><%= medium.url %></td>
+        <td><%= medium.main_container %></td>
+        <td><%= medium.headline_container %></td>
+        <td><%= medium.introtext_container %></td>
+        <td><%= medium.link_container %></td>
+        <td><%= medium.link_prefix %></td>
+        <td><%= link_to 'Show', medium %></td>
+        <td><%= link_to 'Edit', edit_medium_path(medium) %></td>
+        <td><%= link_to 'Destroy', medium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Medium', new_medium_path %>
